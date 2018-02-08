@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TableLayout;
 
 
 public class KeyBoardFragment extends Fragment {
@@ -22,22 +23,12 @@ public class KeyBoardFragment extends Fragment {
         View keyboardView = inflater.inflate(R.layout.fragment_key_board, container, false);
 
         //return inflater.inflate(R.layout.fragment_key_board, container, false);
-        GridView gridKey = (GridView) keyboardView.findViewById(R.id.keyboardGrid);
+        TableLayout gridKey = (TableLayout) keyboardView.findViewById(R.id.keyboardGrid);
 
 
 
 
 
-        gridKey.setAdapter(new ButtonAdapter(this));
-
-        gridKey.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Log.d("Button pressed","");
-            }
-
-
-        });
 
        return keyboardView;
     }

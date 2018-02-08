@@ -9,5 +9,12 @@
     tools:context="com.example.user.fullcalci.MainActivity">
 
 
-
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.user.fullcalci.DisplayFragment"
+        class="com.example.user.fullcalci.DisplayFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        tools:layout="@layout/fragment_display" />
 </LinearLayout>

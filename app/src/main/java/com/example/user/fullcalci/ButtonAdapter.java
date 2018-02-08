@@ -3,16 +3,20 @@ package com.example.user.fullcalci;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 
 /**
  * Created by User on 07-02-2018.
  */
 
 public class ButtonAdapter extends BaseAdapter {
-    public ButtonAdapter(KeyBoardFragment displayFragment) {
+    
+
+    String[] keys = {"1", "2", "3", "+", "4", "5", "6", "-", "7", "8", "9", "<", "*", "0", "%", "C"};
+
+    public ButtonAdapter(KeyBoardFragment keyBoardFragment) {
     }
 
-    String [] keys = {"1","2","3","+","4","5","6","7","8","9","<","*","0","/","%","C"};
     @Override
     public int getCount() {
         return 0;
@@ -30,8 +34,6 @@ public class ButtonAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-
         return null;
     }
 }
