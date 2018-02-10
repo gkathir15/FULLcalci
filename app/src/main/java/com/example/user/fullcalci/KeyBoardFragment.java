@@ -65,10 +65,31 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener{
         return keyboardView;
     }
 
-    void  button1(int num1,int num2)
+    String  button1(int num1,int num2)
     {
+        if(num1==0)
+        {
+            num1 = 1;
+        }
+        else
+            num2 =1;
 
+        return "1";
     }
+
+    String  button(int num1,int num2)
+    {
+        if(num1 == 0)
+        {
+            num1 = 2;
+        }
+        else
+            num2 =2;
+
+        return "2";
+    }
+
+
 
     //add
     float add(int num1, int num2) {

@@ -24,6 +24,7 @@ public class DisplayFragment extends Fragment {
         View displayView = inflater.inflate(R.layout.fragment_display, container, false);
 
          display = displayView.findViewById(R.id.displayText);
+         display.setText("0");
 
 
 
@@ -37,8 +38,10 @@ public class DisplayFragment extends Fragment {
         //update display
         public void updateDisplay(String ans)
         {
-            Log.d("Update display","display frag");
+            if (display.getText().toString() == "0")
             display.setText(ans);
+            else
+            display.append(ans);
         }
 
 
