@@ -24,7 +24,7 @@ public class DisplayFragment extends Fragment {
         View displayView = inflater.inflate(R.layout.fragment_display, container, false);
 
          display = displayView.findViewById(R.id.displayText);
-         display.setText("0");
+
 
 
 
@@ -34,15 +34,20 @@ public class DisplayFragment extends Fragment {
         return displayView;
 
     }
-
+        //if key type is 0, its from operator
+    // if 1 its from numbers;
         //update display
-        public void updateDisplay(String ans)
+        public void updateDisplay(String ans,int keyType)
         {
-            if (display.getText().toString() == "0")
+            if (keyType == 0)
             display.setText(ans);
             else
             display.append(ans);
+
+
         }
+
+
 
 
 }

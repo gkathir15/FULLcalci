@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     DisplayFragment displayFragment;
     KeyBoardFragment keyFragment;
+    String value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         keyFragment = new KeyBoardFragment();
         keyFragment.setmListener(new KeyBoardFragment.OnFragmentInteractionListener() {
             @Override
-            public void onFragmentInteraction(String userContent) {
-                displayFragment.updateDisplay(userContent);
+            public void onFragmentInteraction(String userContent,int keyType) {
+                displayFragment.updateDisplay(userContent,keyType);
             }
         });
 
