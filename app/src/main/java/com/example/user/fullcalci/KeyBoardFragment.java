@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Switch;
 
 
-public class KeyBoardFragment extends Fragment implements View.OnClickListener{
+public class KeyBoardFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
@@ -20,6 +20,7 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener{
     String value1= new String();
     String value2= new String();
     String operator = new String();
+    boolean isCalculated = false;
 
 
     @Override
@@ -264,19 +265,33 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener{
 
 
 
-    void  button6()
-    {
-        if(isOperandSelected == false) {
-            mListener.onFragmentInteraction("6", 1);
-            value1 = value1 + "6";
+    void  button6() {
+        if (isCalculated == false) {
+
+            if (isOperandSelected == false) {
+                mListener.onFragmentInteraction("6", 1);
+                value1 = value1 + "6";
+
+
+            } else {
+                value2 = value2 + "6";
+                mListener.onFragmentInteraction("6", 1);
+            }
+        } else {
+
+            if (isOperandSelected == false) {
+                mListener.onFragmentInteraction("6", 0);
+                value1 ="";
+                value1 = value1 + "6";
+
+
+            } else {
+                value2 = value2 + "6";
+                mListener.onFragmentInteraction("6", 0);
+            }
 
 
         }
-        else {
-            value2 = value2 + "6";
-            mListener.onFragmentInteraction("6", 1);
-        }
-
     }
 
     void  button7()
@@ -297,7 +312,7 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener{
     void  button8()
     {
         if(isOperandSelected == false) {
-            mListener.onFragmentInteraction("9", 1);
+            mListener.onFragmentInteraction("8", 1);
             value1 = value1 + "8";
 
 
@@ -345,9 +360,11 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener{
     void equalTo()
     {
         if(isOperandSelected == false)
-        mListener.onFragmentInteraction("value1", 0);
+        mListener.onFragmentInteraction(value1, 0);
         else
         {
+            if(value1 != "0")
+                mListener.onFragmentInteraction(String.valueOf(op1),0);
             switch(operator)
             {
                 case "+":
@@ -396,6 +413,9 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener{
         if(isOperandSelected == false) {
 
             mListener.onFragmentInteraction("+", 1);
+            isOperandSelected =true;
+            operator = "+";
+            isCalculated= false;
 
         }
         else {
@@ -403,10 +423,19 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener{
             op2 =Integer.parseInt(value2);
             result = op1+op2;
             mListener.onFragmentInteraction(String.valueOf(result), 0);
+            isCalculated = true;
+            isOperandSelected= false;
         }
 
-        operator = "+";
-        isOperandSelected =true;
+
+
+
+        if (isCalculated == true){
+        result =0;
+        value2="0";
+        value1="0";
+        operator=null;
+        isOperandSelected= false;}
 
 
 
@@ -466,9 +495,12 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener{
     //cleac C button
     void clear()
     {
-        mListener.onFragmentInteraction(String.valueOf(result), 0);
+        mListener.onFragmentInteraction(String.valueOf(""), 0);
         value1="0";
         value2="0";
+        operator = null;
+        isOperandSelected= false;
+        isCalculated =false;
 
     }
 
@@ -497,14 +529,7 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener{
 
 
 
-    @Override
-    public void onClick(View v) {
-    }
 
-    String setText(String txt)
-    {
-        return txt;
-    }
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(String userContent,int type);
