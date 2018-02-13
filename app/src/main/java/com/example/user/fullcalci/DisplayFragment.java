@@ -3,6 +3,7 @@ package com.example.user.fullcalci;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,12 +19,31 @@ public class DisplayFragment extends Fragment {
     TextView display;
 
     @Override
+    public void onActivityCreated( Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+      /*  if(savedInstanceState !=null)
+        {
+           display.setText(savedInstanceState.getString("displayString"));
+        }*/
+    }
+
+
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View displayView = inflater.inflate(R.layout.fragment_display, container, false);
 
+
+
          display = displayView.findViewById(R.id.displayText);
+        if(savedInstanceState != null)
+        {
+            if(savedInstanceState.containsKey("displayString") == true)
+
+                display.setText(savedInstanceState.getString("displayString"));
+        }
 
 
 
@@ -47,6 +67,11 @@ public class DisplayFragment extends Fragment {
 
         }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("displayString",display.toString());
+    }
 
 
 
