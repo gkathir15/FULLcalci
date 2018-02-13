@@ -28,7 +28,7 @@ public class KeyBoardFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        Button one, two, three, four, five, six, seven, eight, nine, zero, plus, sub, backspace, clear, mul, equal,div;
+
 
 
 
@@ -38,23 +38,23 @@ public class KeyBoardFragment extends Fragment {
         //return inflater.inflate(R.layout.fragment_key_board, container, false);
         //TableLayout gridKey =  keyboardView.findViewById(R.id.keyboardGrid);
 
-        one = keyboardView.findViewById(R.id.one);
-        two = keyboardView.findViewById(R.id.two);
-        three = keyboardView.findViewById(R.id.three);
-        four = keyboardView.findViewById(R.id.four);
-        five = keyboardView.findViewById(R.id.five);
-        six = keyboardView.findViewById(R.id.six);
-        seven = keyboardView.findViewById(R.id.seven);
-        eight = keyboardView.findViewById(R.id.eight);
-        nine = keyboardView.findViewById(R.id.nine);
-        zero = keyboardView.findViewById(R.id.zero);
-        plus = keyboardView.findViewById(R.id.plus);
-        sub = keyboardView.findViewById(R.id.Sub);
-        backspace = keyboardView.findViewById(R.id.back);
-        clear = keyboardView.findViewById(R.id.clear);
-        mul = keyboardView.findViewById(R.id.mul);
-        equal = keyboardView.findViewById(R.id.equal);
-        div = keyboardView.findViewById(R.id.div);
+        Button one = keyboardView.findViewById(R.id.one);
+        Button two = keyboardView.findViewById(R.id.two);
+        Button three = keyboardView.findViewById(R.id.three);
+        Button four = keyboardView.findViewById(R.id.four);
+        Button five = keyboardView.findViewById(R.id.five);
+        Button six = keyboardView.findViewById(R.id.six);
+        Button seven = keyboardView.findViewById(R.id.seven);
+        Button eight = keyboardView.findViewById(R.id.eight);
+        Button nine = keyboardView.findViewById(R.id.nine);
+        Button zero = keyboardView.findViewById(R.id.zero);
+        Button plus = keyboardView.findViewById(R.id.plus);
+        Button sub = keyboardView.findViewById(R.id.Sub);
+        Button backspace = keyboardView.findViewById(R.id.back);
+        Button clear = keyboardView.findViewById(R.id.clear);
+        Button mul = keyboardView.findViewById(R.id.mul);
+        Button equal = keyboardView.findViewById(R.id.equal);
+        Button div = keyboardView.findViewById(R.id.div);
 
 
 
@@ -445,6 +445,9 @@ public class KeyBoardFragment extends Fragment {
         if(isOperandSelected == false) {
 
             mListener.onFragmentInteraction("-", 1);
+            isOperandSelected =true;
+            operator = "-";
+            isCalculated= false;
 
         }
         else {
@@ -452,9 +455,21 @@ public class KeyBoardFragment extends Fragment {
             op2 =Integer.parseInt(value2);
             result = op1-op2;
             mListener.onFragmentInteraction(String.valueOf(result), 0);
+            isCalculated = true;
+            isOperandSelected= false;
         }
-        operator = "-";
-        isOperandSelected =true;
+
+
+
+
+        if (isCalculated == true){
+            result =0;
+            value2="0";
+            value1="0";
+            operator=null;
+            isOperandSelected= false;}
+
+
     }
 
     //multiply
@@ -462,6 +477,9 @@ public class KeyBoardFragment extends Fragment {
         if(isOperandSelected == false) {
 
             mListener.onFragmentInteraction("*", 1);
+            isOperandSelected =true;
+            operator = "*";
+            isCalculated= false;
 
         }
         else {
@@ -469,9 +487,21 @@ public class KeyBoardFragment extends Fragment {
             op2 =Integer.parseInt(value2);
             result = op1*op2;
             mListener.onFragmentInteraction(String.valueOf(result), 0);
+            isCalculated = true;
+            isOperandSelected= false;
         }
-        operator = "*";
-        isOperandSelected =true;
+
+
+
+
+        if (isCalculated == true){
+            result =0;
+            value2="0";
+            value1="0";
+            operator=null;
+            isOperandSelected= false;}
+
+
     }
 
     //Division
@@ -479,7 +509,10 @@ public class KeyBoardFragment extends Fragment {
     {
         if(isOperandSelected == false) {
 
-            mListener.onFragmentInteraction("/", 1);
+            mListener.onFragmentInteraction("+", 1);
+            isOperandSelected =true;
+            operator = "/";
+            isCalculated= false;
 
         }
         else {
@@ -487,9 +520,21 @@ public class KeyBoardFragment extends Fragment {
             op2 =Integer.parseInt(value2);
             result = op1/op2;
             mListener.onFragmentInteraction(String.valueOf(result), 0);
+            isCalculated = true;
+            isOperandSelected= false;
         }
-        operator = "/";
-        isOperandSelected =true;
+
+
+
+
+        if (isCalculated == true){
+            result =0;
+            value2="0";
+            value1="0";
+            operator=null;
+            isOperandSelected= false;}
+
+
     }
 
     //cleac C button
