@@ -172,7 +172,7 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
 
             mListener.onFragmentInteraction("-", 1);
             isOperandSelected = true;
-            operator = "";
+            operator = "-";
             isCalculated = false;
 
         } else {
