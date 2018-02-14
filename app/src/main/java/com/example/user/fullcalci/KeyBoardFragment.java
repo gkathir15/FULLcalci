@@ -10,12 +10,12 @@ import android.widget.Button;
 import android.widget.Switch;
 
 
-public class KeyBoardFragment extends Fragment implements  View.OnClickListener{
+public class KeyBoardFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
 
 
-    int result = 0, op1 = 0, op2 = 0, operand = 0;
+    int result = 0, op1 = 0, op2 = 0;
     boolean isOperandSelected = false;
     String value1 = new String();
     String value2 = new String();
@@ -34,53 +34,45 @@ public class KeyBoardFragment extends Fragment implements  View.OnClickListener{
         //return inflater.inflate(R.layout.fragment_key_board, container, false);
         //TableLayout gridKey =  keyboardView.findViewById(R.id.keyboardGrid);
 
-        Button one = (Button) keyboardView.findViewById(R.id.one);
-        Button two = (Button)keyboardView.findViewById(R.id.two);
-        Button three = (Button)keyboardView.findViewById(R.id.three);
-        Button four = (Button)keyboardView.findViewById(R.id.four);
-        Button five = (Button)keyboardView.findViewById(R.id.five);
-        Button six = (Button)keyboardView.findViewById(R.id.six);
-        Button seven = (Button)keyboardView.findViewById(R.id.seven);
-        Button eight = (Button)keyboardView.findViewById(R.id.eight);
-        Button nine = (Button)keyboardView.findViewById(R.id.nine);
-        Button zero = (Button)keyboardView.findViewById(R.id.zero);
-        Button plus = (Button)keyboardView.findViewById(R.id.plus);
-        Button sub = (Button)keyboardView.findViewById(R.id.Sub);
-        Button backspace = (Button)keyboardView.findViewById(R.id.back);
-        Button clear = (Button)keyboardView.findViewById(R.id.clear);
-        Button mul = (Button)keyboardView.findViewById(R.id.mul);
-        Button equal = (Button)keyboardView.findViewById(R.id.equal);
-        Button div = (Button)keyboardView.findViewById(R.id.div);
-        one.setOnClickListener((View.OnClickListener) this);
-        two.setOnClickListener((View.OnClickListener) this);
-        three.setOnClickListener((View.OnClickListener) this);
-        four.setOnClickListener((View.OnClickListener) this);
-        five.setOnClickListener((View.OnClickListener) this);
-        six.setOnClickListener((View.OnClickListener) this);
-        seven.setOnClickListener((View.OnClickListener) this);
-        eight.setOnClickListener((View.OnClickListener) this);
-        nine.setOnClickListener((View.OnClickListener) this);
-        zero.setOnClickListener((View.OnClickListener) this);
-        plus.setOnClickListener((View.OnClickListener) this);
-        sub.setOnClickListener((View.OnClickListener) this);
-        mul.setOnClickListener((View.OnClickListener) this);
-        backspace.setOnClickListener((View.OnClickListener) this);
-        equal.setOnClickListener((View.OnClickListener) this);
-        clear.setOnClickListener((View.OnClickListener) this);
-        equal.setOnClickListener((View.OnClickListener) this);
-        div.setOnClickListener((View.OnClickListener) this);
-
-
-
-
-
+        Button one = keyboardView.findViewById(R.id.one);
+        Button two = keyboardView.findViewById(R.id.two);
+        Button three = keyboardView.findViewById(R.id.three);
+        Button four = keyboardView.findViewById(R.id.four);
+        Button five = keyboardView.findViewById(R.id.five);
+        Button six = keyboardView.findViewById(R.id.six);
+        Button seven = keyboardView.findViewById(R.id.seven);
+        Button eight = keyboardView.findViewById(R.id.eight);
+        Button nine = keyboardView.findViewById(R.id.nine);
+        Button zero = keyboardView.findViewById(R.id.zero);
+        Button plus = keyboardView.findViewById(R.id.plus);
+        Button sub = keyboardView.findViewById(R.id.Sub);
+        Button backspace = keyboardView.findViewById(R.id.back);
+        Button clear = keyboardView.findViewById(R.id.clear);
+        Button mul = keyboardView.findViewById(R.id.mul);
+        Button equal = keyboardView.findViewById(R.id.equal);
+        Button div = keyboardView.findViewById(R.id.div);
+        one.setOnClickListener(this);
+        two.setOnClickListener(this);
+        three.setOnClickListener(this);
+        four.setOnClickListener(this);
+        five.setOnClickListener(this);
+        six.setOnClickListener(this);
+        seven.setOnClickListener(this);
+        eight.setOnClickListener(this);
+        nine.setOnClickListener(this);
+        zero.setOnClickListener(this);
+        plus.setOnClickListener(this);
+        sub.setOnClickListener(this);
+        mul.setOnClickListener(this);
+        backspace.setOnClickListener(this);
+        equal.setOnClickListener(this);
+        clear.setOnClickListener(this);
+        equal.setOnClickListener(this);
+        div.setOnClickListener(this);
 
 
         return keyboardView;
     }
-
-
-
 
 
     void buttonN(int number) {
@@ -111,7 +103,6 @@ public class KeyBoardFragment extends Fragment implements  View.OnClickListener{
 
         }
     }
-
 
 
     void equalTo() {
@@ -278,38 +269,30 @@ public class KeyBoardFragment extends Fragment implements  View.OnClickListener{
 
     //backspace button
     void backspace() {
-        if(isCalculated = true)
-        {
-            if(result < 10) {
+        if (isCalculated = true) {
+            if (result < 10) {
 
                 mListener.onFragmentInteraction(" ", 0);
-                isCalculated =false;
+                isCalculated = false;
 
 
-            }
-            else
-            {
+            } else {
 
                 value1 = String.valueOf(result).substring(0, String.valueOf(result).length() - 1);
                 mListener.onFragmentInteraction(String.valueOf(value1), 0);
             }
-            if (isOperandSelected)
-            {
-                operator="";
-                isOperandSelected =false;
+            if (isOperandSelected) {
+                operator = "";
+                isOperandSelected = false;
 
-            }
-            else
-            {
-                if(Integer.parseInt(value1) < 10) {
+            } else {
+                if (Integer.parseInt(value1) < 10) {
 
                     mListener.onFragmentInteraction(" ", 0);
-                    isCalculated =false;
+                    isCalculated = false;
 
 
-                }
-                else
-                {
+                } else {
 
 
                     value1 = String.valueOf(value1).substring(0, String.valueOf(value1).length() - 1);
@@ -385,7 +368,6 @@ public class KeyBoardFragment extends Fragment implements  View.OnClickListener{
                 break;
 
 
-
         }
 
 
@@ -398,6 +380,40 @@ public class KeyBoardFragment extends Fragment implements  View.OnClickListener{
 
     void setmListener(OnFragmentInteractionListener listener) {
         mListener = listener;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("value1",value1);
+        outState.putString("value2",value2);
+        outState.putString("operator",operator);
+        outState.putInt("op1",op1);
+        outState.putInt("op2",op2);
+        outState.putInt("result",result);
+        outState.putBoolean("isCalculated",isCalculated);
+        outState.putBoolean("isOperandSelected",isOperandSelected);
+
+
+    }
+
+    @Override
+    public void onActivityCreated( Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null )
+        {
+            value1 = savedInstanceState.getString("value1");
+            value2 = savedInstanceState.getString("value2");
+           operator = savedInstanceState.getString("operator");
+            op1 = savedInstanceState.getInt("op1");
+            op2 = savedInstanceState.getInt("op2");
+            result = savedInstanceState.getInt("result");
+            isCalculated = savedInstanceState.getBoolean("isCalculated");
+            isOperandSelected = savedInstanceState.getBoolean("isOperandSelected");
+
+
+
+        }
     }
 
 

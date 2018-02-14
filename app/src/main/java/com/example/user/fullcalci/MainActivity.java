@@ -18,15 +18,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //For displaying Display strip
-        displayFragment = new DisplayFragment();
+
+        if(savedInstanceState != null)
+        {
+            displayFragment = (DisplayFragment) getSupportFragmentManager().getFragment(savedInstanceState, "displayFragment");
+        }
+        else {
+            //For displaying Display strip
+            displayFragment = new DisplayFragment();
+        }
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.first,displayFragment)
                 .commit();
 
-        //Displaying calculator keyboard
-        keyFragment = new KeyBoardFragment();
+        if(savedInstanceState != null)
+        {
+            keyFragment = (KeyBoardFragment) getSupportFragmentManager().getFragment(savedInstanceState, "keyBoardFragment");
+        }
+        else {
+            //Displaying calculator keyboard
+            keyFragment = new KeyBoardFragment();
+        }
         keyFragment.setmListener(new KeyBoardFragment.OnFragmentInteractionListener() {
             @Override
             public void onFragmentInteraction(String userContent,int keyType) {
@@ -39,18 +52,30 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.second,keyFragment)
                 .commit();
       //  sendDisplayData("main");
+        if (savedInstanceState != null) {
+            //Restore the fragment's instance
+            displayFragment = (DisplayFragment) getSupportFragmentManager().getFragment(savedInstanceState, "displayFragment");
+
+        }
     }
 
-   /* public void sendDisplayData(String ans)
-    {
-         d = (DisplayFragment) getSupportFragmentManager().findFragmentById(R.id.displayText);
-        d.updateDisplay(ans);
-    }*/
+
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(String userContent,int type);
 
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        //Save the fragment's instance
+        getSupportFragmentManager().putFragment(outState, "displayFragment", displayFragment);
+        getSupportFragmentManager().putFragment(outState, "keyBoardFragment", keyFragment);
+    }
+
+
 
 
 

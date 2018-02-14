@@ -17,14 +17,18 @@ public class DisplayFragment extends Fragment {
 
 
     TextView display;
+    String saveData;
+
+
 
     @Override
     public void onActivityCreated( Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-      /*  if(savedInstanceState !=null)
+      if(savedInstanceState != null )
         {
+
            display.setText(savedInstanceState.getString("displayString"));
-        }*/
+        }
     }
 
 
@@ -38,20 +42,20 @@ public class DisplayFragment extends Fragment {
 
 
          display = displayView.findViewById(R.id.displayText);
-        if(savedInstanceState != null)
+       /* if(savedInstanceState != null)
         {
-            if(savedInstanceState.containsKey("displayString") == true)
+            if(savedInstanceState.containsKey("displayString") )
 
                 display.setText(savedInstanceState.getString("displayString"));
-        }
-
-
-
+           // Log.d("State",savedInstanceState.getString("displayString"));
+        }*/
 
 
 
         // Inflate the layout for this fragment
         return displayView;
+
+
 
     }
         //if key type is 0, its from operator
@@ -64,14 +68,25 @@ public class DisplayFragment extends Fragment {
             else
             display.append(ans);
 
+            saveData= ans;
+
 
         }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("displayString",display.toString());
+        outState.putString("displayString",saveData);
+       // Log.d("State",saveData);
+
     }
+
+
+
+
+
+
+
 
 
 
