@@ -196,9 +196,10 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
 
 
         if (isCalculated == true) {
-            result = 0;
+            //result = 0;
             value2 = "0";
-            value1 = "0";
+            value1 = String.valueOf(result);
+
             operator = null;
             isOperandSelected = false;
         }
@@ -226,18 +227,21 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
 
 
         if (isCalculated == true) {
-            result = 0;
+            //result = 0;
             value2 = "0";
-            value1 = "0";
+            value1 = String.valueOf(result);
+
             operator = null;
             isOperandSelected = false;
         }
+
 
 
     }
 
     //Division
     void division() {
+
         if (isOperandSelected == false) {
 
             mListener.onFragmentInteraction("/", 1);
@@ -256,12 +260,14 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
 
 
         if (isCalculated == true) {
-            result = 0;
+            //result = 0;
             value2 = "0";
-            value1 = "0";
+            value1 = String.valueOf(result);
+
             operator = null;
             isOperandSelected = false;
         }
+
 
 
     }
