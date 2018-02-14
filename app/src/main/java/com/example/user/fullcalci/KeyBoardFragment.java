@@ -90,9 +90,18 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
         } else {
 
             if (isOperandSelected == false) {
-                mListener.onFragmentInteraction(String.valueOf(number), 0);
-                value1 = "";
-                value1 = value1 + String.valueOf(number);
+                if (result !=0){
+
+                    mListener.onFragmentInteraction(String.valueOf(number), 1);
+                    value1 = value1 + String.valueOf(number);
+
+
+                }
+                else{
+                    mListener.onFragmentInteraction(String.valueOf(number), 0);
+                    value1 = "";
+                    value1 = value1 + String.valueOf(number);
+                }
 
 
             } else {
@@ -156,9 +165,10 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
 
 
         if (isCalculated == true) {
-            result = 0;
+            //result = 0;
             value2 = "0";
-            value1 = "0";
+            value1 = String.valueOf(result);
+
             operator = null;
             isOperandSelected = false;
         }
