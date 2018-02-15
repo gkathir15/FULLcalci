@@ -90,14 +90,13 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
         } else {
 
             if (isOperandSelected == false) {
-                if (result !=0){
+                if (result != 0) {
 
                     mListener.onFragmentInteraction(String.valueOf(number), 1);
                     value1 = value1 + String.valueOf(number);
 
 
-                }
-                else{
+                } else {
                     mListener.onFragmentInteraction(String.valueOf(number), 0);
                     value1 = "";
                     value1 = value1 + String.valueOf(number);
@@ -154,6 +153,7 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
             operator = "+";
             isCalculated = false;
 
+
         } else {
             op1 = Integer.parseInt(value1);
             op2 = Integer.parseInt(value2);
@@ -161,6 +161,7 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
             mListener.onFragmentInteraction(String.valueOf(result), 0);
             isCalculated = true;
             isOperandSelected = false;
+            Log.d("add", String.valueOf(result));
         }
 
 
@@ -171,6 +172,7 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
 
             operator = null;
             isOperandSelected = false;
+            Log.d("add", String.valueOf(result));
         }
 
 
@@ -236,7 +238,6 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
         }
 
 
-
     }
 
     //Division
@@ -269,7 +270,6 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
         }
 
 
-
     }
 
     //cleac C button
@@ -285,40 +285,34 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
 
     //backspace button
     void backspace() {
-        if (isCalculated = true) {
-            if (result < 10) {
+       if(isCalculated = true)
+       {
+           mListener.onFragmentInteraction("", 0);
+           clear();
+           isCalculated=false;
+       }
+       else
+       {
+           if(value2 != null)
+           {
+               mListener.onFragmentInteraction(value1+operator, 1);
+               value2 =null;
 
-                mListener.onFragmentInteraction(" ", 0);
-                isCalculated = false;
+           }
+           else{
+               if (isOperandSelected == true)
+               {
+                   mListener.onFragmentInteraction("", 1);
+                   operator=null;
+               }
+               else
+               {
+                   mListener.onFragmentInteraction("", 1);
+                   clear();
+               }
+           }
 
-
-            } else {
-
-                value1 = String.valueOf(result).substring(0, String.valueOf(result).length() - 1);
-                mListener.onFragmentInteraction(String.valueOf(value1), 0);
-            }
-            if (isOperandSelected) {
-                operator = "";
-                isOperandSelected = false;
-
-            } else {
-                if (Integer.parseInt(value1) < 10) {
-
-                    mListener.onFragmentInteraction(" ", 0);
-                    isCalculated = false;
-
-
-                } else {
-
-
-                    value1 = String.valueOf(value1).substring(0, String.valueOf(value1).length() - 1);
-                    mListener.onFragmentInteraction(String.valueOf(value1), 0);
-                }
-
-            }
-
-        }
-
+       }
     }
 
     @Override
@@ -401,26 +395,29 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("value1",value1);
-        outState.putString("value2",value2);
-        outState.putString("operator",operator);
-        outState.putInt("op1",op1);
-        outState.putInt("op2",op2);
-        outState.putInt("result",result);
-        outState.putBoolean("isCalculated",isCalculated);
-        outState.putBoolean("isOperandSelected",isOperandSelected);
+        outState.putString("value1", value1);
+        outState.putString("value2", value2);
+
+        outState.putString("operator", operator);
+        outState.putInt("op1", op1);
+        outState.putInt("op2", op2);
+        outState.putInt("result", result);
+        outState.putBoolean("isCalculated", isCalculated);
+        outState.putBoolean("isOperandSelected", isOperandSelected);
 
 
     }
 
     @Override
-    public void onActivityCreated( Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        if(savedInstanceState != null )
-        {
+        if (savedInstanceState != null) {
             value1 = savedInstanceState.getString("value1");
             value2 = savedInstanceState.getString("value2");
-           operator = savedInstanceState.getString("operator");
+            // Log.d("val",value1);
+            //Log.d("val",value2);
+            operator = savedInstanceState.getString("operator");
+            Log.d("val", String.valueOf(result));
             op1 = savedInstanceState.getInt("op1");
             op2 = savedInstanceState.getInt("op2");
             result = savedInstanceState.getInt("result");
@@ -428,10 +425,8 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
             isOperandSelected = savedInstanceState.getBoolean("isOperandSelected");
 
 
-
         }
     }
-
 
 
 }
