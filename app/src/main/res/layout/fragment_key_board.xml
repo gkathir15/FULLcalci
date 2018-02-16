@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
     android:layout_marginTop="20dp"
-    android:background="#757575">
+    android:background="#fcf3e3"
+    android:shrinkColumns="*">
 
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_margin="10dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp">
 
         <Button
 
@@ -19,156 +21,185 @@
             android:background="@drawable/shape"
             android:padding="5dp"
             android:text="@string/one"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/two"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/shape"
             android:padding="5dip"
             android:text="@string/two"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/three"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/shape"
             android:padding="5dp"
             android:text="@string/three"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/plus"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/shape"
             android:padding="5dp"
             android:text="@string/plus"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
     </TableRow>
 
     <TableRow
         android:layout_width="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp">
 
         <Button
             android:id="@+id/four"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/four"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/five"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/five"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/six"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/six"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/Sub"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/Subraction"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
     </TableRow>
 
 
-    <TableRow android:layout_margin="10dp">
+    <TableRow android:layout_margin="3dp">
 
         <Button
             android:id="@+id/seven"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/seven"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/eight"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/eight"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
 
         <Button
             android:id="@+id/nine"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/nine"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/back"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
-            android:text="@string/back"
-            android:textSize="40dp" />
+            android:drawableLeft="@drawable/ic_backspace_black_24dp"
+            android:padding="3dp"
+            android:paddingStart="30dp"
+            android:textSize="40sp" />
     </TableRow>
 
-    <TableRow android:layout_margin="10dp">
+    <TableRow android:layout_margin="3dp">
 
         <Button
             android:id="@+id/mul"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/multiply"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/zero"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/zero"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/equal"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/equals"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/clear"
-            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:background="@drawable/shape"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="@string/Clear"
-            android:textSize="40dp" />
+            android:textSize="40sp" />
     </TableRow>
 
-<TableRow
-    android:layout_margin="10dp">
+    <TableRow android:layout_margin="3dp">
 
 
-
-    <Button
-        android:id="@+id/div"
-        android:layout_margin="5dp"
-        android:background="@drawable/shape"
-        android:padding="5dp"
-        android:text="/"
-        android:textSize="40dp" />
-</TableRow>
+        <Button
+            android:id="@+id/div"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@drawable/shape"
+            android:padding="3dp"
+            android:text="/"
+            android:textSize="40sp" />
+    </TableRow>
 </TableLayout>

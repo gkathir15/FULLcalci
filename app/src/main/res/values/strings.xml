@@ -19,12 +19,12 @@
     <string name="seven">7</string>
     <string name="eight">8</string>
     <string name="nine">9</string>
-    <string name="back"> &lt; </string>
+
 
     <string name="multiply">*</string>
     <string name="zero">0</string>
     <string name="equals">=</string>
-    <string name="Clear">C</string>
+    <string name="Clear">AC</string>
 
 
 </resources>

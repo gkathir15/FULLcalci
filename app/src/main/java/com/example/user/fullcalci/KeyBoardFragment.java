@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Switch;
+import android.widget.Toast;
 
 
 public class KeyBoardFragment extends Fragment implements View.OnClickListener {
@@ -15,7 +16,7 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
     private OnFragmentInteractionListener mListener;
 
 
-    int result = 0, op1 = 0, op2 = 0;
+    long result = 0, op1 = 0, op2 = 0;
     boolean isOperandSelected = false;
     String value1 = new String();
     String value2 = new String();
@@ -155,8 +156,8 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
 
 
         } else {
-            op1 = Integer.parseInt(value1);
-            op2 = Integer.parseInt(value2);
+            op1 = Long.parseLong(value1);
+            op2 = Long.parseLong(value2);
             result = op1 + op2;
             mListener.onFragmentInteraction(String.valueOf(result), 0);
             isCalculated = true;
@@ -188,8 +189,8 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
             isCalculated = false;
 
         } else {
-            op1 = Integer.parseInt(value1);
-            op2 = Integer.parseInt(value2);
+            op1 = Long.parseLong(value1);
+            op2 = Long.parseLong(value2);
             result = op1 - op2;
             mListener.onFragmentInteraction(String.valueOf(result), 0);
             isCalculated = true;
@@ -219,8 +220,8 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
             isCalculated = false;
 
         } else {
-            op1 = Integer.parseInt(value1);
-            op2 = Integer.parseInt(value2);
+            op1 = Long.parseLong(value1);
+            op2 = Long.parseLong(value2);
             result = op1 * op2;
             mListener.onFragmentInteraction(String.valueOf(result), 0);
             isCalculated = true;
@@ -251,12 +252,18 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
             isCalculated = false;
 
         } else {
-            op1 = Integer.parseInt(value1);
-            op2 = Integer.parseInt(value2);
+            if(op2 !=0){
+            op1 = Long.parseLong(value1);
+            op2 = Long.parseLong(value2);
             result = op1 / op2;
             mListener.onFragmentInteraction(String.valueOf(result), 0);
             isCalculated = true;
-            isOperandSelected = false;
+            isOperandSelected = false;}
+            else
+            {
+                Toast t =  Toast.makeText(getContext(),"Division by 0 is not possible",Toast.LENGTH_SHORT);
+                t.show();
+            }
         }
 
 
@@ -399,9 +406,9 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
         outState.putString("value2", value2);
 
         outState.putString("operator", operator);
-        outState.putInt("op1", op1);
-        outState.putInt("op2", op2);
-        outState.putInt("result", result);
+        outState.putLong("op1", op1);
+        outState.putLong("op2", op2);
+        outState.putLong("result", result);
         outState.putBoolean("isCalculated", isCalculated);
         outState.putBoolean("isOperandSelected", isOperandSelected);
 
@@ -418,9 +425,9 @@ public class KeyBoardFragment extends Fragment implements View.OnClickListener {
             //Log.d("val",value2);
             operator = savedInstanceState.getString("operator");
             Log.d("val", String.valueOf(result));
-            op1 = savedInstanceState.getInt("op1");
-            op2 = savedInstanceState.getInt("op2");
-            result = savedInstanceState.getInt("result");
+            op1 = savedInstanceState.getLong("op1");
+            op2 = savedInstanceState.getLong("op2");
+            result = savedInstanceState.getLong("result");
             isCalculated = savedInstanceState.getBoolean("isCalculated");
             isOperandSelected = savedInstanceState.getBoolean("isOperandSelected");
 

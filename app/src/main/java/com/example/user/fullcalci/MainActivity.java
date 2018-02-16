@@ -50,10 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(String userContent, int type);
 
-    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

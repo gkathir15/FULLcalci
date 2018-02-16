@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
     android:layout_marginTop="20dp"
-    android:background="#757575">
+    android:background="#fcf3e3">
 
     <TableRow
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:background="@drawable/shape"
             android:padding="5dp"
             android:text="@string/one"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/two"
@@ -117,7 +117,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/shape"
             android:padding="5dp"
-            android:text="@string/back"
+            android:drawableLeft="@drawable/ic_backspace_black_24dp"
             android:textSize="20dp" />
 
 
